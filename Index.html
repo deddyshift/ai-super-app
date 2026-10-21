@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Super App - Autonomous Workforce Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(17, 24, 39, 0.75); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header class="border-b border-slate-800 glass sticky top-0 z-50 px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex items-center space-x-3">
+            <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
+            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white">AI Autonomous Office <span class="text-indigo-400 text-xs sm:text-sm font-normal">v1.0</span></h1>
+        </div>
+        <div class="flex items-center space-x-3">
+            <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1.5 rounded-full font-medium">10/10 AI Active</span>
+            <button onclick="triggerWorkflow()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition shadow-lg shadow-indigo-600/30">
+                🚀 Jalankan Pipeline
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="flex-1 p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto w-full">
+        
+        <!-- Kolom 1 & 2: Daftar 10 Karyawan AI -->
+        <section class="lg:col-span-2 space-y-4 sm:space-y-6">
+            <div class="flex justify-between items-center">
+                <h2 class="text-base sm:text-lg font-semibold text-slate-200">Tim Karyawan AI (10 Agents)</h2>
+                <span class="text-xs text-slate-400">Pusat Kendali Super App</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4" id="agent-grid">
+                <!-- Agent 1: PM -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-blue-500/10 text-blue-400 flex items-center justify-center rounded-lg font-bold text-sm">PM</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">Product Manager AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 2: Scrum Master -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-purple-500/10 text-purple-400 flex items-center justify-center rounded-lg font-bold text-sm">SM</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">Scrum Master AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 3: UI/UX Designer -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-pink-500/10 text-pink-400 flex items-center justify-center rounded-lg font-bold text-sm">UX</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">UI/UX Designer AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 4: Architect -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-amber-500/10 text-amber-400 flex items-center justify-center rounded-lg font-bold text-sm">ARC</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">System Architect AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 5: Backend -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-emerald-500/10 text-emerald-400 flex items-center justify-center rounded-lg font-bold text-sm">BE</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">Backend Developer AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 6: Frontend -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-cyan-500/10 text-cyan-400 flex items-center justify-center rounded-lg font-bold text-sm">FE</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">Frontend Developer AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 7: QA -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-red-500/10 text-red-400 flex items-center justify-center rounded-lg font-bold text-sm">QA</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">QA / Tester AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 8: Security -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-orange-500/10 text-orange-400 flex items-center justify-center rounded-lg font-bold text-sm">SEC</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">Security Engineer AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 9: DevOps -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-teal-500/10 text-teal-400 flex items-center justify-center rounded-lg font-bold text-sm">OPS</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">DevOps Engineer AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+                <!-- Agent 10: Growth / Writer -->
+                <div class="bg-slate-900 border border-slate-800 p-3.5 sm:p-4 rounded-xl flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-indigo-500/10 text-indigo-400 flex items-center justify-center rounded-lg font-bold text-sm">MKT</div>
+                    <div>
+                        <h3 class="font-medium text-slate-200 text-sm">Technical Writer & Mkt AI</h3>
+                        <p class="text-xs text-emerald-400 mt-0.5 flex items-center"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full inline-block mr-1.5 animate-ping"></span> Siap</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kolom 3: Log Aktivitas Real-Time & Interaksi -->
+        <section class="space-y-4 sm:space-y-6">
+            <h2 class="text-base sm:text-lg font-semibold text-slate-200">Live Activity Feed</h2>
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 h-[450px] sm:h-[500px] flex flex-col justify-between">
+                <div id="log-container" class="space-y-3 overflow-y-auto pr-2 text-xs font-mono text-slate-300">
+                    <div class="p-2.5 bg-slate-950 rounded border border-slate-800/80">
+                        <span class="text-indigo-400">[System]</span> Kantor virtual AI diinisialisasi. Siap menerima instruksi super app!
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-800">
+                    <div class="flex gap-2">
+                        <input type="text" id="user-prompt" placeholder="Ketik ide super app..." class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-indigo-500">
+                        <button onclick="sendPrompt()" class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-2 rounded-lg text-xs font-semibold transition">Kirim</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function addLog(agent, message, type = "info") {
+            const container = document.getElementById('log-container');
+            const time = new Date().toLocaleTimeString();
+            let color = "text-indigo-400";
+            if(type === 'success') color = "text-emerald-400";
+            if(type === 'warning') color = "text-amber-400";
+            
+            const div = document.createElement('div');
+            div.className = "p-2.5 bg-slate-950 rounded border border-slate-800/80";
+            div.innerHTML = `<span class="text-slate-500">[${time}]</span> <span class="${color}">[${agent}]</span> ${message}`;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function triggerWorkflow() {
+            addLog("System", "Memulai autonomous pipeline untuk 10 Karyawan AI...", "warning");
+            setTimeout(() => addLog("Product Manager AI", "Menganalisis ide dan menyusun PRD Super App...", "info"), 1000);
+            setTimeout(() => addLog("Scrum Master AI", "Membagi PRD menjadi 12 Task Sprint backlog...", "info"), 2500);
+            setTimeout(() => addLog("UI/UX Designer AI", "Menghasilkan wireframe & user flow antarmuka...", "info"), 4000);
+            setTimeout(() => addLog("Backend Developer", "Menulis skema database & endpoint REST API...", "info"), 6000);
+            setTimeout(() => addLog("Frontend Developer", "Merakit komponen UI dan menghubungkan API...", "info"), 8000);
+            setTimeout(() => addLog("QA Tester", "Menjalankan automated test... Semua tes lulus (0 bug).", "success"), 10000);
+            setTimeout(() => addLog("DevOps Engineer", "Mendeploy aplikasi otomatis ke Vercel production!", "success"), 12000);
+        }
+
+        function sendPrompt() {
+            const input = document.getElementById('user-prompt');
+            if(!input.value) return;
+            addLog("User", `Mengirim perintah: "${input.value}"`, "warning");
+            const val = input.value;
+            input.value = "";
+            setTimeout(() => {
+                addLog("Product Manager AI", `Menerima instruksi mengenai: "${val}". Menyesuaikan PRD...`, "info");
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
